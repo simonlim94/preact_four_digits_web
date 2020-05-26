@@ -1,0 +1,30 @@
+.home {
+  padding: 20px;
+  min-height: 100%;
+  width: 100%;
+}
+
+.cardHeader {
+  padding: 16px;
+  text-align: center;
+}
+
+.cardBody {
+  padding: 16px;
+}
+
+.resultTable {
+  width: 100%;
+}
+
+.resultTable tr th {
+  padding: 10px 0;
+  color: white;
+  background: #6200ee;
+}
+
+.resultTable tr td {
+  padding: 10px 0;
+  border: 1px solid #ccc;
+  text-align: center;
+}
