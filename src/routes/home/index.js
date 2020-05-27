@@ -4,13 +4,19 @@ import Card from 'preact-material-components/Card';
 import 'preact-material-components/Card/style.css';
 import 'preact-material-components/Button/style.css';
 import axios from 'axios';
+import moment from 'moment';
 
 import style from './style';
 import config from '../../config';
 
 const ResultTable = () => {
   const [items, setItems] = useState([]);
-  const data = { date: '2020-05-18 00:00:00' };
+  const data = {
+    date:
+      new Date().getHours() >= 20
+        ? moment(new Date()).format('YYYY-MM-DD') + ' 00:00:00'
+        : moment(new Date()).add(-1, 'days').format('YYYY-MM-DD') + ' 00:00:00',
+  };
   const url = `${config.API_ROOT_URL}/result`;
 
   useEffect(() => {
@@ -23,7 +29,7 @@ const ResultTable = () => {
       },
     })
       .then((res) => setItems(res.data.items.result))
-      .catch((e) => console.error(e));
+      .catch((e) => console.log('error:', e.response));
   }, []);
 
   return (
@@ -82,7 +88,13 @@ export default class Home extends Component {
       <div class={`${style.home} page`}>
         <Card>
           <div class={style.cardHeader}>
-            <h2 class=" mdc-typography--title">Today Result</h2>
+            <h2 class=" mdc-typography--title">
+              Result (
+              {new Date().getHours() >= 20
+                ? moment(new Date()).format('YYYY-MM-DD')
+                : moment(new Date()).add(-1, 'days').format('YYYY-MM-DD')}
+              )
+            </h2>
           </div>
           {ResultTable()}
         </Card>
