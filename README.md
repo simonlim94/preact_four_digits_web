@@ -1,21 +1,4 @@
-# preact material app
+# Preact Four Digits Web
+A preact implementation of front end website for Rust backend hobby project. https://github.com/simonlim94/rust_four_digits_backend
 
-Super performant `Material` app for preact world using [preact-material-components](https://github.com/prateekbh/preact-material-components)
-
-## CLI Commands
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# test the production build locally
-npm run serve
-```
-
-For detailed explanation on how things work, checkout the [CLI Readme](https://github.com/developit/preact-cli/blob/master/README.md).
+Hosting on AWS S3: http://four-digits-simulation.s3-website-us-east-1.amazonaws.com/
